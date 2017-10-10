@@ -31,3 +31,24 @@ Dans notre agence, nous gérons les voyages avec les principes suivant :
 
 Par ailleurs, nous avons un système de gestion de relation client sur mainframe qui nous permet de gérer les réservations, la facturation, et le déroulé des circuits, mais ses détails ne vous concernent pas dans le cadre de ce projet.
 
+## 4. Structure
+
+index.html/
+    sign-in/
+    sign-up/
+    contact/
+    show-travel/ #list all travels available
+    account/ #customer account 
+        info/
+        travel-basket/
+            id1
+            id2
+    admin/ #admin account
+        travel/
+            add/
+            delete/
+                id1
+                id2
+            edit/
+                id1
+                id2
