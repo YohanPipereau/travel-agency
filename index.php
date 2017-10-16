@@ -18,44 +18,52 @@ require_once 'agvoymodel.php';
 
 // Routage et actions
 
+//index.php
+$app->get ( '/',
+    function () use ($app)
+    {
+    return $app ['twig']-> render ( 'front-office/welcome.html.twig' );
+    }
+)->bind( 'accueil' );
+
 // circuitlist : Liste tous les circuits
-$app->get ( '/circuit', 
-    function () use ($app) 
+$app->get ( '/circuit',
+    function () use ($app)
     {
     	$circuitslist = get_all_circuits ();
     	// print_r($circuitslist);
-    	
-    	return $app ['twig']->render ( 'circuitslist.html.twig', [
+
+    	return $app ['twig']->render ( 'front-office/circuitslist.html.twig', [
     			'circuitslist' => $circuitslist
     	] );
     }
 )->bind ( 'circuitlist' );
 
 // circuitshow : affiche les détails d'un circuit
-$app->get ( '/circuit/{id}', 
-	function ($id) use ($app) 
+$app->get ( '/circuit/{id}',
+	function ($id) use ($app)
 	{
 		$circuit = get_circuit_by_id ( $id );
 		// print_r($circuit);
 		$programmations = get_programmations_by_circuit_id ( $id );
 		//$circuit ['programmations'] = $programmations;
 
-		return $app ['twig']->render ( 'circuitshow.html.twig', [ 
+		return $app ['twig']->render ( 'circuitshow.html.twig', [
 				'id' => $id,
-				'circuit' => $circuit 
+				'circuit' => $circuit
 			] );
 	}
 )->bind ( 'circuitshow' );
 
 // programmationlist : liste tous les circuits programmés
-$app->get ( '/programmation', 
-	function () use ($app) 
+$app->get ( '/programmation',
+	function () use ($app)
 	{
 		$programmationslist = get_all_programmations ();
 		// print_r($programmationslist);
 
-		return $app ['twig']->render ( 'programmationslist.html.twig', [ 
-				'programmationslist' => $programmationslist 
+		return $app ['twig']->render ( 'front-office/programmationslist.html.twig', [
+				'programmationslist' => $programmationslist
 			] );
 	}
 )->bind ( 'programmationlist' );
