@@ -31,7 +31,7 @@ $app->get ( '/contacts',
     {
     return $app ['twig']-> render ( 'front-office/contacts.html.twig' );
     }
-)->bind('contacts');
+)->bind('contacts'); //bind() offers a naming convention for get method
 
 $app->get ( '/legal',
     function () use ($app)

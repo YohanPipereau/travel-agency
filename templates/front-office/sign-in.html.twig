@@ -2,3 +2,27 @@
 
 {% extends "baselayout.html.twig" %}
 
+{% block body %}
+
+    <div>
+        <form>
+            <div>
+                <h1> Sign-in </h1>
+            <div>
+
+            <div>
+                <div>
+                    <label id=login> Login </label>
+                    <input id=login placeholder='Your user login'> </input>
+                </div>
+                <div>
+                    <label id=password> Password </label>
+                    <input id=password type=password placeholder='Your password'>  </input>
+                </div>
+            </div>
+            <div>
+                <input type=submit />
+            </div>
+        </form>
+    <div>
+{% endblock %}
