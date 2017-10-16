@@ -18,13 +18,41 @@ require_once 'agvoymodel.php';
 
 // Routage et actions
 
-//index.php
+//homepage of the website
 $app->get ( '/',
     function () use ($app)
     {
     return $app ['twig']-> render ( 'front-office/welcome.html.twig' );
     }
-)->bind( 'accueil' );
+)->bind('homepage');
+
+$app->get ( '/contacts',
+    function () use ($app)
+    {
+    return $app ['twig']-> render ( 'front-office/contacts.html.twig' );
+    }
+)->bind('contacts');
+
+$app->get ( '/legal',
+    function () use ($app)
+    {
+    return $app ['twig']-> render ( 'front-office/legal.html.twig' );
+    }
+)->bind('legal');
+
+$app->get ( '/sign-in',
+    function () use ($app)
+    {
+    return $app ['twig']-> render ( 'front-office/sign-in.html.twig' );
+    }
+)->bind('sign-in');
+
+$app->get ( '/sign-up',
+    function () use ($app)
+    {
+    return $app ['twig']-> render ( 'front-office/sign-up.html.twig' );
+    }
+)->bind('sign-up');
 
 // circuitlist : Liste tous les circuits
 $app->get ( '/circuit',
