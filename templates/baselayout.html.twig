@@ -13,21 +13,30 @@
 
   <body>
     <header>
-        <ul>
-            <li> <a href=/ > Welcome </a> </li>
-            <li> <a href=/circuit > All tours </a> </li>
-            <li> <a href=/programmation > Programmed Tours </a> </li>
-            <li> <a href=/sign-in> Sign In </a> </li>
-            <li> <a href=/sign-up> Sign Up </a> </li>
-        </ul>
+        <div class='navbar-header'>
+            <a href="/" class='navbar-brand'> INT TRAVEL </a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+              <li> <a href=/ > Welcome </a> </li>
+              <li> <a href=/circuit > All tours </a> </li>
+              <li> <a href=/programmation > Programmed Tours </a> </li>
+              <li> <a href=/sign-in> Sign In </a> </li>
+              <li> <a href=/sign-up> Sign Up </a> </li>
+          </ul>
+        </div>
     </header>
     {% block body %}
     {% endblock %}
     <footer>
-        <ul>
-            <li> <a href=/contacts > Contacts </a> </li>
-            <li> <a href=/legal > Legal Notices </a> </li>
-        </ul>
+        <section id='contact'>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+               <a href=/contacts > Contacts </a>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+               <a href=/legal > Legal Notices </a>
+            </div>
+        </section>
     </footer>
   </body>
 
