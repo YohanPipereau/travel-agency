@@ -7,13 +7,17 @@
 {% block body %}
     <h1>List of circuits</h1>
     {% if circuitslist is not empty %}
-        <p>Here are all your circuits:</p>
+        <p>Here are the circuits available after the {{ "now"|date('d-m-Y') }} :</p>
         <ul>
         {# Loop through list and creeate the list of circuit items. #}
         {% for circuit in circuitslist %}
-            <li>
-          		<a href="{{ path('circuitshow', { 'id' : circuit.id }) }}">{{ circuit.description }}</a>
-            </li>
+             {% for programmation in circuit.programmations %}
+                 {% if programmation.dateDepart|date('Ymd') < "now"|date('Ymd') %}
+                <li>
+                    <a href="{{ path('circuitshow', { 'id' : circuit.id }) }}">{{ circuit.description }}</a>
+                </li>
+                {% endif %}
+             {% endfor %}
         {% endfor %}
         </ul>
     {% else %}

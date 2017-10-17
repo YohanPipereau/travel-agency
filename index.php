@@ -76,7 +76,7 @@ $app->get ( '/circuit/{id}',
 		$programmations = get_programmations_by_circuit_id ( $id );
 		//$circuit ['programmations'] = $programmations;
 
-		return $app ['twig']->render ( 'circuitshow.html.twig', [
+		return $app ['twig']->render ( 'front-office/circuitshow.html.twig', [
 				'id' => $id,
 				'circuit' => $circuit
 			] );
@@ -90,7 +90,7 @@ $app->get ( '/programmation',
 		$programmationslist = get_all_programmations ();
 		// print_r($programmationslist);
 
-		return $app ['twig']->render ( 'front-office/programmationslist.html.twig', [
+		return $app ['twig']->render ( 'programmationslist.html.twig', [
 				'programmationslist' => $programmationslist
 			] );
 	}
