@@ -7,10 +7,11 @@
 {% block body %}
     <h1>List of circuits</h1>
     {% if circuitslist is not empty %}
-        <p>Here are the circuits available after the {{ "now"|date('d-m-Y') }} :</p>
+        <p>Here are the programmed circuits available after the {{ "now"|date('d-m-Y') }} :</p>
         <ul>
         {# Loop through list and creeate the list of circuit items. #}
         {% for circuit in circuitslist %}
+            {% if circuit.programmations is not empty %}
              {% for programmation in circuit.programmations %}
                  {% if programmation.dateDepart|date('Ymd') < "now"|date('Ymd') %}
                 <li>
@@ -18,6 +19,7 @@
                 </li>
                 {% endif %}
              {% endfor %}
+           {% endif %}
         {% endfor %}
         </ul>
     {% else %}
