@@ -3,31 +3,38 @@
 {% extends "baselayout.html.twig" %}
 
 {% block body %}
-
-    <div>
-        <h1> website goal</h1>
+    <section id=goal>
+      <div class=container>
+          <div class="row text-center"> <h1> Website Goal </h1> </div>
         <p>
-            This website aims at providing a web interface to our travel agency.
-        </p>
-    </div>
+           This website aims at providing a web interface to our travel agency.
+         </p>
+      </div>
+    </section>
 
-    <div>
-        <h1> How to use this website ? </h1>
-        <p>
-            Please click wherever you feel you want to click.
-        </p>
-    </div>
+    <section id=usage>
+      <div class=container>
+          <div class="row text-center"> <h1> How to use this website ? </h1> </div>
+          <p>
+              Please click wherever you feel you want to click.
+          </p>
+      </div>
+    </section>
 
-    <div>
-        <h1> News </h1>
-        <p>
-            News about ancient time.
-        </p>
-    </div>
+    <section id=news>
+      <div class=container>
+          <div class="row text-center"> <h1> News </h1> </div>
+          <p>
+              News about ancient time.
+          </p>
+      </div>
+    </section>
 
-    <div>
-        <h1> Upcoming Tours </h1>
-        <!-- permet une consultation des circuits organisés prochainement -->
-    </div>
+    <section id=tours>
+      <div class=container>
+          <div class="row text-center"> <h1> Upcoming Tours </h1> </div>
+          <!-- permet une consultation des circuits organisés prochainement -->
+      </div>
+    </section>
 
 {% endblock %} {# body #}

@@ -8,7 +8,8 @@
             <!-- Minimal theme -->
             <link rel="stylesheet" href="{{ asset('vendor/twbs/bootstrap/dist/css/bootstrap.min.css') }}">
             <!-- Optionnal Theme -->
-            <link rel="stylesheet" href="{{ asset('vendor/twbs/bootstrap/dist/css/bootstrap-theme.min.css') }}">
+            {% block stylesheet %}
+            {% endblock %}
   </head>
 
   <body>
@@ -27,14 +28,21 @@
         </div>
     </header>
     {% block body %}
+       	{% block javascripts %}
+	        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	        <script src="{{ asset('vendor/components/jquery/jquery.min.js') }}"></script>
+	        <script src="{{ asset('vendor/twbs/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+	    {% endblock %}
+	{% block custompage_script %}{% endblock %}
+
     {% endblock %}
     <footer>
         <section id='contact'>
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-               <a href=/contacts > Contacts </a>
+                <div class="row text-center header"> <a href=/contacts > <h3> Contacts </h3> </a> </div>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-               <a href=/legal > Legal Notices </a>
+                <div class="row text-center header"> <a href=/legal > <h3> Legal Notices </h3> </a> </div>
             </div>
         </section>
     </footer>

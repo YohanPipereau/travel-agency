@@ -22,7 +22,7 @@ require_once 'agvoymodel.php';
 $app->get ( '/',
     function () use ($app)
     {
-    return $app ['twig']-> render ( 'front-office/welcome.html.twig' );
+    return $app ['twig']-> render ( 'front-office/frontlayout.html.twig' );
     }
 )->bind('homepage');
 
