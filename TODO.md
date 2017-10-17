@@ -17,6 +17,7 @@
         une partie « Front Office » consultée par les visiteurs, qui affiche la liste des voyages mis au catalogue, avec le détail de leurs étapes, les dates du voyage, etc.
         une partie « Back Office » réservée aux collaborateurs de l’agence (et à l’administrateur du site) qui affiche des écrans permettant d’ajouter, de modifier et de supprimer des informations : un circuit, ses étapes, une programmation au catalogue…
     Vous ajouterez tous les éléments nécessaires pour faire fonctionner le site au mieux, et de façon classique par rapport à la gestion d’un tel site Web.
+    dans le back-office on consulte la liste de tous les circuits, qu’ils aient déjà été planifiés ou non, et quelleque soit leur date de planification
 
 ## 3. Nos voyages
 

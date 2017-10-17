@@ -1,7 +1,7 @@
 <?php
 /**
  * Model\Circuit.php
- * 
+ *
  * @copyright  2015-2017 Telecom SudParis
  * @license    "MIT/X" License - cf. LICENSE file at project root
  */
@@ -27,7 +27,7 @@ class Circuit
     protected $programmations;
     private $etapes;
     private $nbEtapes;
-    
+
     /**
      * Get id
      *
@@ -171,15 +171,15 @@ class Circuit
 	    	// Generate ID from number of instances (safe if no decrement at destruction)
 		    $this->_id = self::$instances;
     	}
-	    
+
 	    $this->programmations = array();
 	    $this->etapes = array();
-	    
+
 	    // Calculated attributes
 	    $this->nbEtapes = 0;
 	    $this->dureeCircuit = 0;
     }
-		
+
 // 	/**
 // 	 * Handle restoration from the session
 // 	 */
@@ -228,7 +228,7 @@ class Circuit
         $etape = new Etape();
         $etape->setVilleEtape($nom);
         $etape->setNombreJours($duree);
-        
+
     	if($this->nbEtapes == 0) {
     		$this->villeDepart = $nom;
     	}
@@ -239,7 +239,7 @@ class Circuit
         $etape->setCircuit($this);
         $this->etapes[] = $etape;
         $this->dureeCircuit += $duree;
-        
+
         return $this;
     }
 

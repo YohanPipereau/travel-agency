@@ -18,6 +18,17 @@
          de voyage à travers le {{ circuit.paysDepart }}, pour terminer à
          {{ circuit.villeArrivee }}.</p>
 
+    <h2> Étapes </h2>
+    <ul>
+        <li> {{ circuit.villeDepart }} </li>
+          {% for etape in circuit.getEtapes()|trim %}
+              <!-- trim cut would-be whitespace -->
+              <li> {{ etape }} </li>
+          {% endfor %}
+        <li> {{ circuit.villeArrivee }} </li>
+    </ul>
+    </p>
+
   {% if circuit.programmations is not empty %}
   <h2>Programmations de ce circuit</h2>
   {# <pre>{{ dump(circuit) }}</pre> #}
