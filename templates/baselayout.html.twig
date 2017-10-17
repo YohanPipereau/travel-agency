@@ -3,49 +3,74 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
     <title>{% block title %} Travel Agency {% endblock %}</title>
         <!-- Bootstrap -->
-            <!-- Minimal theme -->
-            <link rel="stylesheet" href="{{ asset('vendor/twbs/bootstrap/dist/css/bootstrap.min.css') }}">
-            <!-- Optionnal Theme -->
+            <link rel="stylesheet" href="{{ asset('vendor/twbs/bootstrap/dist/css/bootstrap.css') }}">
+            <link rel="stylesheet"  href="css/animations.min.css">
+            <link rel="stylesheet"  href="css/font-awesome.css">
+            <link rel="stylesheet"  href="css/ionicons.css">
+            <link rel="stylesheet"  href="css/jquery.fancybox.css">
+            <link rel="stylesheet"  href="js/vegas/jquery.vegas.min.css">
+            <link rel="stylesheet"  href="style.css">
+
             {% block stylesheet %}
             {% endblock %}
   </head>
 
-  <body>
-    <header>
-        <div class='navbar-header'>
-            <a href="/" class='navbar-brand'> INT TRAVEL </a>
-        </div>
-        <div class="navbar-collapse collapse">
+<body  data-spy="scroll" data-target="#menu-section">
+
+<!--menu section start-->
+<div class="navbar navbar-inverse navbar-fixed-top scroll-menu" id="menu-section">
+<div class="container">
+     <div class="navbar-header">
+     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+     </button>
+      <a class="navbar-brand" href="/">INT Travel</a>
+    </div>
+    <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-              <li> <a href=/ > Welcome </a> </li>
-              <li> <a href=/circuit > All tours </a> </li>
-              <li> <a href=/programmation > Programmed Tours </a> </li>
-              <li> <a href=/sign-in> Sign In </a> </li>
-              <li> <a href=/sign-up> Sign Up </a> </li>
-          </ul>
-        </div>
-    </header>
-    {% block body %}
-       	{% block javascripts %}
-	        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	        <script src="{{ asset('vendor/components/jquery/jquery.min.js') }}"></script>
-	        <script src="{{ asset('vendor/twbs/bootstrap/dist/js/bootstrap.min.js') }}"></script>
-	    {% endblock %}
-	{% block custompage_script %}{% endblock %}
+      <li class="active"><a href="/">HOME</a></li>
+      <li><a href="/circuit">All Tours</a></li>
+      <li><a href="/programmation">Programmed Tours</a></li>
+      <li><a href="/sign-in">Sign In</a></li>
+      <li><a href="/sing-up">Sign Up</a></li>
+    </ul>
+    </div>
+</div>
+</div>
+<!--menu section end-->
 
-    {% endblock %}
-    <footer>
-        <section id='contact'>
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                <div class="row text-center header"> <a href=/contacts > <h3> Contacts </h3> </a> </div>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                <div class="row text-center header"> <a href=/legal > <h3> Legal Notices </h3> </a> </div>
-            </div>
-        </section>
-    </footer>
-  </body>
 
+{% block body %}
+{% endblock %}
+
+{% block footpage %}
+{% endblock %}
+
+
+{% block custompage_script %}
+{% endblock %}
+
+<script src="{{ asset('vendor/components/jquery/jquery.js') }}"></script>
+<script src="{{ asset('vendor/twbs/bootstrap/dist/js/bootstrap.js') }}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script  src="js/custom.js"></script>
+<script  src="js/jquery.isotope.js"></script>
+<script  src="js/jquery.easing.min.js" ></script>
+<script  src="js/animations.min.js"> </script>
+<script  src="appear.min.js"></script>
+<script  src="js/vegas/jquery.vegas.min.js"></script>
+<script  src="js/source/jquery.fancybox.js"></script>
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+});
+</script>
+
+</body>
 </html>
