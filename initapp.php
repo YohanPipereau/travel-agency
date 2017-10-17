@@ -5,7 +5,7 @@
  */
 
 /**
- * Application Silex 
+ * Application Silex
  * @var Silex\Application $app
  */
 $app = new Silex\Application ();
@@ -19,6 +19,17 @@ $app->register ( new Silex\Provider\TwigServiceProvider (), array (
         'debug' => true
     )
 ) );
+
+// for asset() in twig templates
+$app->register(new Silex\Provider\AssetServiceProvider(), array(
+    'assets.version' => 'v1',
+    'assets.version_format' => '%s?version=%s',
+    'assets.named_packages' => array(
+        'css' => array('version' => 'css2', 'base_path' => '/whatever-makes-sense'),
+        'images' => array('base_urls' => array('https://img.example.com')),
+    ),
+));
+
 
 $app['twig'] = $app->extend('twig', function ($twig, $app) {
     $twig->addExtension(new \Twig_Extension_Debug());
@@ -37,4 +48,4 @@ $app['twig'] = $app->extend('twig', function ($twig, $app) {
 });
 
  return $app;
-    
+
