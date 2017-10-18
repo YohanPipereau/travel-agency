@@ -8,12 +8,12 @@
     <title>{% block title %} Travel Agency {% endblock %}</title>
         <!-- Bootstrap -->
             <link rel="stylesheet" href="{{ asset('vendor/twbs/bootstrap/dist/css/bootstrap.css') }}">
-            <link rel="stylesheet"  href="css/animations.min.css">
-            <link rel="stylesheet"  href="css/font-awesome.css">
-            <link rel="stylesheet"  href="css/ionicons.css">
-            <link rel="stylesheet"  href="css/jquery.fancybox.css">
-            <link rel="stylesheet"  href="js/vegas/jquery.vegas.min.css">
-            <link rel="stylesheet"  href="style.css">
+            <link rel="stylesheet"  href="{{ asset('css/animations.min.css') }}">
+            <link rel="stylesheet"  href="{{ asset('css/font-awesome.css') }}">
+            <link rel="stylesheet"  href="{{ asset('css/ionicons.css') }}">
+            <link rel="stylesheet"  href="{{ asset('css/jquery.fancybox.css') }}">
+            <link rel="stylesheet"  href="{{ asset('js/vegas/jquery.vegas.min.css') }}">
+            <link rel="stylesheet"  href="{{ asset('style.css') }}">
 
             {% block stylesheet %}
             {% endblock %}
@@ -59,13 +59,13 @@
 <script src="{{ asset('vendor/components/jquery/jquery.js') }}"></script>
 <script src="{{ asset('vendor/twbs/bootstrap/dist/js/bootstrap.js') }}"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-<script  src="js/custom.js"></script>
-<script  src="js/jquery.isotope.js"></script>
-<script  src="js/jquery.easing.min.js" ></script>
-<script  src="js/animations.min.js"> </script>
-<script  src="appear.min.js"></script>
-<script  src="js/vegas/jquery.vegas.min.js"></script>
-<script  src="js/source/jquery.fancybox.js"></script>
+<script  src="{{ asset('js/custom.js')}}"></script>
+<script  src="{{ asset('js/jquery.isotope.js') }}"></script>
+<script  src="{{ asset('js/jquery.easing.min.js') }}" ></script>
+<script  src="{{ asset('js/animations.min.js') }}"> </script>
+<script  src="{{ asset('appear.min.js') }}"></script>
+<script  src="{{ asset('js/vegas/jquery.vegas.min.js') }}"></script>
+<script  src="{{ asset('js/source/jquery.fancybox.js') }}"></script>
 <script>
 $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();

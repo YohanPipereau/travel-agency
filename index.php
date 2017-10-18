@@ -22,7 +22,7 @@ require_once 'agvoymodel.php';
 $app->get ( '/',
     function () use ($app)
     {
-    return $app ['twig']-> render ( 'front-office/welcome2.html.twig' );
+    return $app ['twig']-> render ( 'front-office/welcome.html.twig' );
     }
 )->bind('homepage');
 
@@ -90,7 +90,7 @@ $app->get ( '/programmation',
 		$programmationslist = get_all_programmations ();
 		// print_r($programmationslist);
 
-		return $app ['twig']->render ( 'programmationslist.html.twig', [
+		return $app ['twig']->render ( 'front-office/programmationslist.html.twig', [
 				'programmationslist' => $programmationslist
 			] );
 	}

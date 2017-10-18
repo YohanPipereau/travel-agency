@@ -1,14 +1,12 @@
-{# templates/circuitshow.html.twig #}
-{#
-  {{ dump(circuit) }}
-#}
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Details for circuit {{ id }}</title>
-</head>
-<body>
-  <h1>{{ circuit.description }}</h1>
+{# templates/front-office/circuitshow.html.twig #}
+
+{% extends "front-office/frontlayout.html.twig" %}
+
+{%block title %}{{ parent() }} Details for circuit {{ id }} {% endblock %}
+
+{% block sectiontitle %} {{ circuit.description }} {% endblock %}
+
+{% block sectioncontent %}
 
     <h2>Détails</h2>
 
@@ -51,6 +49,4 @@
     {% else %}
     <p>Désolé : pas encore de programmations pour ce circuit.</p>
     {% endif %}
-
-</body>
-</html>
+{% endblock %}

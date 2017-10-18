@@ -2,6 +2,25 @@
 
 {% extends "baselayout.html.twig" %}
 
+{% block body %}
+<!-- start upcoming tours section -->
+<section id="how-to-use">
+     <div class="container">
+          <div class="row text-center header">
+               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                   <h3> {% block sectiontitle %} {% endblock %} </h3>
+                    <hr>
+               </div>
+          </div>
+    {% block sectioncontent %}
+    {% endblock %}
+    </div>
+</section>
+<!--end upcoming tours section -->
+
+
+{% endblock %}
+
 {% block footpage %}
 <!-- start of contact section-->
 <section id="contact">
