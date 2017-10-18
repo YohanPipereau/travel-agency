@@ -5,9 +5,8 @@
 {% block sectiontitle %} Programmations List{% endblock %}
 
 {% block sectioncontent %}
-    <h1>List of programmations</h1>
     {% if programmationslist is not empty %}
-        <p>Here are all your programmations:</p>
+        <h3>Your programmations:</h3>
         <ul>
         {# Loop through list and creeate the list of programmation items. #}
         {% for programmation in programmationslist %}
