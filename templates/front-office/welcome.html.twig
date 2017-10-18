@@ -1,40 +1,105 @@
-{# templates/welcome.html.twig #}
-
-{% extends "frontlayout.html.twig" %}
+{% extends 'front-office/frontlayout.html.twig' %}
 
 {% block body %}
-    <section id=goal>
-      <div class=container>
-          <div class="row text-center"> <h1> Website Goal </h1> </div>
-        <p>
-           This website aims at providing a web interface to our travel agency.
-         </p>
-      </div>
-    </section>
 
-    <section id=usage>
-      <div class=container>
-          <div class="row text-center"> <h1> How to use this website ? </h1> </div>
-          <p>
-              Please click wherever you feel you want to click.
-          </p>
-      </div>
-    </section>
+<!--start of home section-->
+<section id="home">
+   <div class="container">
+      <div class="row">
+         <div class="col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
+            <div id="myCarousel" class="carousel slide " data-ride="carousel" >
+               <div class="carousel-inner" role="listbox">
+                  <div class="item active">
+                     <h3> News for Hanoï</h3>
+                         <p> Don't forget your umbrella to go to Hanoi. </p>
+                  </div>
+                  <div class="item">
+                     <h3> News for Italia</h3>
+                         <p>Pastas are not just for students</p>
+                  </div>
+               </div>
+            </div>
+        </div>
+     </div>
+     <div class="row">
+        <div class="col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-8 col-lg-offset-2 scroll-me">
+            <p> Welcome in INT Travel. This website is here to help you see available circuits and tours programmed for you. </p>
+<a href="https://github.com/YohanPipereau/travel-agency" data-toggle="tooltip" data-placement="bottom" title="Github" class="btn button-custom btn-custom-one" ><i class="fa fa-github "></i></a>
+        </div>
 
-    <section id=news>
-      <div class=container>
-          <div class="row text-center"> <h1> News </h1> </div>
-          <p>
-              News about ancient time.
-          </p>
-      </div>
-    </section>
+     </div>
+     </div>
+</section>
+<!--end of home section-->
 
-    <section id=tours>
-      <div class=container>
-          <div class="row text-center"> <h1> Upcoming Tours </h1> </div>
-          <!-- permet une consultation des circuits organisés prochainement -->
-      </div>
-    </section>
+<!-- start of how-to-use section-->
+<section id="how-to-use">
+     <div class="container">
+          <div class="row text-center header">
+               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <h3> HOW TO USE THIS WEBSITE </h3>
+                    <hr>
+               </div>
+          </div>
+                Please click wherever you feel you want to click.
 
-{% endblock %} {# body #}
+    </div>
+</section>
+<!-- end of how-to-use section -->
+
+
+<!-- start upcoming tours section -->
+<section id="how-to-use">
+     <div class="container">
+          <div class="row text-center header">
+               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <h3> UPCOMING TOURS </h3>
+                    <hr>
+               </div>
+          </div>
+
+    </div>
+</section>
+
+<!--end upcoming tours section -->
+
+<!-- start of team section-->
+<section id="team">
+     <div class="container">
+          <div class="row text-center header">
+               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <h3>TEAM MEMBERS </h3>
+                    <hr>
+               </div>
+          </div>
+          <div class="row text-center">
+               <div class="col-md-3 col-sm-3 col-xs-12 col-lg-3">
+                    <div class="team-wrapper">
+                         <div class="team-inner" style="background-image: url(img/team/tuhin.jpg);">
+                              <a href="#" class="fa fa-globe" target="_blank"></a>
+                         </div>
+                         <div class="description">
+                              <h3>PIPEREAU Yohan</h3>
+                              <h5>Telecom SudParis Student</h5>
+                              <p>Hi, I'm here to help you</p>
+                         </div>
+                    </div>
+               </div>
+               <div class="col-md-3 col-sm-3 col-xs-12 col-lg-3">
+                    <div class="team-wrapper">
+                         <div class="team-inner" style="background-image: url(img/team/tuhin.jpg);">
+                              <a href="#" class="fa fa-globe" target="_blank"></a>
+                         </div>
+                         <div class="description">
+                              <h3>LEY Tam'Si</h3>
+                              <h5>Telecom SudParis Student</h5>
+                              <p>Hi, I'm here to help you</p>
+                         </div>
+                    </div>
+               </div>
+          </div>
+     </div>
+</section>
+<!--end of close sectin-->
+
+{% endblock %}

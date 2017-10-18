@@ -1,6 +1,6 @@
 {# templates/programmationslist.html.twig #}
 
-{% extends "baselayout.html.twig" %}
+{% extends "front-office/frontlayout.html.twig" %}
 
 {% block title %}{{ parent() }} - programmations list{% endblock %}
 
@@ -18,5 +18,5 @@
         </ul>
     {% else %}
         <p>Sorry, you don't have any programmations yet!</p>
-    {% endif %}    
+    {% endif %}
 {% endblock %} {# body #}
