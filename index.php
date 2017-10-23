@@ -1,120 +1,41 @@
 <?php
 
 /**
- * Application d'exemple Agence de voyages Silex
+ * Point d'entrée de l'application agence de voyages Silex
+ *
+ * @copyright  2015-2017 Telecom SudParis
+ * @license    "MIT/X" License - cf. LICENSE file at project root
  */
 
+// Initialisations de l'autoloader et des bibliothèques composer
 // require_once __DIR__.'/vendor/autoload.php';
+// variante autorisant le déport de vendor via variable d'env. COMPOSER_VENDOR_DIR
 $vendor_directory = getenv ( 'COMPOSER_VENDOR_DIR' );
 if ($vendor_directory === false) {
-	$vendor_directory = __DIR__ . '/vendor';
+  $vendor_directory = __DIR__ . '/vendor';
 }
 require_once $vendor_directory . '/autoload.php';
 
-// Initialisations
+// Initialisations du framework Silex
 $app = require_once 'initapp.php';
 
+// Chargement du gestionnaire de la persistence du modèle dans la base de données
 require_once 'agvoymodel.php';
+
+
+// Gestion de la page d'accueil
+
+$app->get('/',
+    function () use ($app)
+    {
+        return $app['twig']->render('front-office/welcome.html.twig');
+    }
+)->bind('home');
+
+// chargement des gestionnaires pour le front office
+require_once 'frontoffice.php';
+// chargement des gestionnaires pour le back office
 require_once 'backoffice.php';
 
-// Routage et actions
-
-//homepage of the website
-$app->get ( '/',
-    function () use ($app)
-    {
-    return $app ['twig']-> render ( 'front-office/welcome.html.twig' );
-    }
-)->bind('homepage');
-
-$app->get ( '/contacts',
-    function () use ($app)
-    {
-    return $app ['twig']-> render ( 'front-office/contacts.html.twig' );
-    }
-)->bind('contacts'); //bind() offers a naming convention for get method
-
-$app->get ( '/legal',
-    function () use ($app)
-    {
-    return $app ['twig']-> render ( 'front-office/legal.html.twig' );
-    }
-)->bind('legal');
-
-$app->get ( '/sign-in',
-    function () use ($app)
-    {
-    return $app ['twig']-> render ( 'front-office/sign-in.html.twig' );
-    }
-)->bind('sign-in');
-
-$app->get ( '/sign-up',
-    function () use ($app)
-    {
-    return $app ['twig']-> render ( 'front-office/sign-up.html.twig' );
-    }
-)->bind('sign-up');
-
-
-// circuitlist : Liste tous les circuits
-$app->get ( '/circuit',
-    function () use ($app)
-    {
-    	$circuitslist = get_all_circuits ();
-    	// print_r($circuitslist);
-
-    	return $app ['twig']->render ( 'front-office/circuitslist.html.twig', [
-    			'circuitslist' => $circuitslist
-    	] );
-    }
-)->bind ( 'circuitlist' );
-
-// circuitshow : affiche les détails d'un circuit
-$app->get ( '/circuit/{id}',
-	function ($id) use ($app)
-	{
-		$circuit = get_circuit_by_id ( $id );
-		// print_r($circuit);
-		$programmations = get_programmations_by_circuit_id ( $id );
-		//$circuit ['programmations'] = $programmations;
-
-		return $app ['twig']->render ( 'front-office/circuitshow.html.twig', [
-				'id' => $id,
-				'circuit' => $circuit
-			] );
-	}
-)->bind ( 'circuitshow' );
-
-// programmationlist : liste tous les circuits programmés
-$app->get ( '/programmation',
-	function () use ($app)
-	{
-		$programmationslist = get_all_programmations ();
-		// print_r($programmationslist);
-
-		return $app ['twig']->render ( 'front-office/programmationslist.html.twig', [
-				'programmationslist' => $programmationslist
-			] );
-	}
-)->bind ( 'programmationlist' );
-
-$app->get ( '/admin',
-    function () use ($app)
-    {
-    return $app ['twig']-> render ( 'back-office/admin.html.twig' );
-    }
-)->bind('admin');
-
-$app->get ( '/admin/circuit',
-    function () use ($app)
-    {
-    	$circuitslist = get_all_circuits ();
-    	// print_r($circuitslist);
-
-    	return $app ['twig']->render ( 'back-office/circuitlist.html.twig', [
-    			'circuitslist' => $circuitslist
-    	] );
-    }
-)->bind ( 'admin_circuitlist' );
-
+// Appel du framework
 $app->run ();

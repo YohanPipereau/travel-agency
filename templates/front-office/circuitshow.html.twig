@@ -1,52 +1,84 @@
-{# templates/front-office/circuitshow.html.twig #}
+{# templates/frontoffice/circuitshow.html.twig #}
+
+{#
+     Affichage d'un circuit dans le frontoffice
+  #}
 
 {% extends "front-office/frontlayout.html.twig" %}
 
-{%block title %}{{ parent() }} Details for circuit {{ id }} {% endblock %}
+{% block title %}{{ parent() }} - Details for circuit {{ id }}{% endblock %}
 
-{% block sectiontitle %} {{ circuit.description }} {% endblock %}
+{% block body %}
 
-{% block sectioncontent %}
+    {# <pre>{{ dump(circuit) }}</pre> #}
+<div class="container" style="margin-top:3em">
+	<h1>{{ circuit.description }}</h1>
 
-    <h2>Détails</h2>
+    {% for message in app.session.flashbag.get('message') %}
+        <div class="alert alert-info alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert">
+                <span aria-hidden="true">&times;</span>
+                <span class="sr-only">Close</span>
+            </button>
+            <p>{{ message }}</p>
+        </div>
+    {% endfor %}
 
-            <p>Description: {{ circuit.description }}</p>
 
-            <p>Départ de {{ circuit.villeDepart }} pour {{ circuit.dureeCircuit }} j.
-         de voyage à travers le {{ circuit.paysDepart }}, pour terminer à
-         {{ circuit.villeArrivee }}.</p>
+		<h2>Détails du circuit</h2>
 
-    <h2> Étapes </h2>
-    <ul>
-        <li> {{ circuit.villeDepart }} </li>
-          {% for etape in circuit.getEtapes()|trim %}
-              <!-- trim cut would-be whitespace -->
-              <li> {{ etape }} </li>
-          {% endfor %}
-        <li> {{ circuit.villeArrivee }} </li>
-    </ul>
-    </p>
+		<dl class="dl-horizontal">
+  			<dt>Description</dt>	<dd>{{ circuit.description }}</dd>
+  			<dt>Pays</dt> <dd>{{ circuit.paysDepart }}</dd>
+  			<dt>Durée</dt>	<dd>{{ circuit.dureeCircuit }} j.</dd>
+			<dt>Ville de départ</dt> <dd>{{ circuit.villeDepart }}</dd>
+			<dt>Ville d'arrivée</dt> <dd>{{ circuit.villeArrivee }}</dd>
+		</dl>
 
-  {% if circuit.programmations is not empty %}
-  <h2>Programmations de ce circuit</h2>
-  {# <pre>{{ dump(circuit) }}</pre> #}
-        <table>
-                <thead>
+        {% if circuit.etapes is not empty %}
+  			<h2>&Eacute;tapes de ce circuit</h2>
+        		<table class="table">
+                	<thead>
                         <tr>
-                            <th>Date de départ</th>
-                              <th>Nombre de personnes</th>
-                              <th>Prix</th>
+                            <th>Num&eacute;ro &eacute;tape</th>
+                            <th>Ville &eacute;tape</th>
+                            <th>Nombre de jours</th>
                         </tr>
                     </thead>
-            {%  for programmation in circuit.programmations %}
-                <tr>
-                   <td>{{ programmation.dateDepart|date('d-m-Y')  }}</td>
-                   <td>{{ programmation.nombrePersonnes }}</td>
-                   <td>{{ programmation.prix }} euros</td>
-                </tr>
-            {% endfor %}
+                    {%  for etape in circuit.etapes %}
+	                	<tr>
+    		               <td>{{ etape.numeroEtape }}</td>
+            		       <td>{{ etape.villeEtape  }}</td>
+		                   <td>{{ etape.nombreJours }}</td>
+        		        </tr>
+                    {% endfor %}
             </table>
-    {% else %}
-    <p>Désolé : pas encore de programmations pour ce circuit.</p>
-    {% endif %}
-{% endblock %}
+        {% else %}
+    		<p>Désolé : pas de données concernant les étapes de ce circuit pour l'instant.</p>
+        {% endif %}
+
+        {% if circuit.programmations is not empty %}
+			 <h2>Programmations de ce circuit</h2>
+             {# <pre>{{ dump(circuit) }}</pre> #}
+     			<table class="table">
+     	 			<thead>
+     					<tr>
+     				    	<th>Date de départ</th>
+     				    	<th>Nombre de personnes</th>
+     						<th>Prix</th>
+     					</tr>
+     				</thead>
+     		        {%  for programmation in circuit.programmations %}
+     					<tr>
+     			   			<td>{{ programmation.dateDepart|date('d-m-Y')  }}</td>
+     			   			<td>{{ programmation.nombrePersonnes }}</td>
+     			   			<td>{{ programmation.prix }} euros</td>
+     					</tr>
+     		        {% endfor %}
+     			</table>
+            {% else %}
+    			<p>Désolé : pas encore de dates programmées pour ce circuit.</p>
+            {% endif %}
+</div>
+{% endblock %} {# main #}
+
