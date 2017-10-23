@@ -1,0 +1,15 @@
+{# templates/back-office/etapenew.html.twig #}
+
+{% extends "back-office/adminlayout.html.twig" %}
+
+{% block title %}{{ parent() }} - Nouvelle étape{% endblock %}
+
+{% block main %}
+
+  <h1>Nouvelle étape</h1>
+
+   Nouvelle étape pour le circuit {{ circuit.description }}
+
+  {% include 'back-office/etapeform.html.twig' %}
+
+{% endblock %} {# main #}

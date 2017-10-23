@@ -37,6 +37,16 @@
 
 
 {% block body %}
+           <div class="container body-container" style="margin-top:3em">
+            {% block main %}
+            <div class="row">
+                <div class="col-md-12">
+                    <p><i>MAIN</i></p>
+                </div>
+            </div>
+            {% endblock %} {# main #}
+        </div>  <!-- /.body-container -->
+
 {% endblock %}
 
 {% block footpage %}
