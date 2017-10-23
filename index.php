@@ -15,6 +15,7 @@ require_once $vendor_directory . '/autoload.php';
 $app = require_once 'initapp.php';
 
 require_once 'agvoymodel.php';
+require_once 'backoffice.php';
 
 // Routage et actions
 
@@ -54,12 +55,6 @@ $app->get ( '/sign-up',
     }
 )->bind('sign-up');
 
-$app->get ( '/admin',
-    function () use ($app)
-    {
-    return $app ['twig']-> render ( 'back-office/admin.html.twig' );
-    }
-)->bind('sign-up');
 
 // circuitlist : Liste tous les circuits
 $app->get ( '/circuit',
@@ -102,5 +97,24 @@ $app->get ( '/programmation',
 			] );
 	}
 )->bind ( 'programmationlist' );
+
+$app->get ( '/admin',
+    function () use ($app)
+    {
+    return $app ['twig']-> render ( 'back-office/admin.html.twig' );
+    }
+)->bind('admin');
+
+$app->get ( '/admin/circuit',
+    function () use ($app)
+    {
+    	$circuitslist = get_all_circuits ();
+    	// print_r($circuitslist);
+
+    	return $app ['twig']->render ( 'back-office/circuitlist.html.twig', [
+    			'circuitslist' => $circuitslist
+    	] );
+    }
+)->bind ( 'admin_circuitlist' );
 
 $app->run ();

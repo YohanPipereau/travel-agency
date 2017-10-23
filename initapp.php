@@ -30,6 +30,13 @@ $app->register(new Silex\Provider\AssetServiceProvider(), array(
     ),
 ));
 
+// Session (pour flashbags)
+$app->register(new Silex\Provider\SessionServiceProvider(), array(
+  'session.storage.save_path' => __DIR__.'/var'
+));
+
+// Formulaires
+$app->register(new Silex\Provider\FormServiceProvider());
 
 $app['twig'] = $app->extend('twig', function ($twig, $app) {
     $twig->addExtension(new \Twig_Extension_Debug());
