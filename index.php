@@ -54,6 +54,13 @@ $app->get ( '/sign-up',
     }
 )->bind('sign-up');
 
+$app->get ( '/admin',
+    function () use ($app)
+    {
+    return $app ['twig']-> render ( 'back-office/admin.html.twig' );
+    }
+)->bind('sign-up');
+
 // circuitlist : Liste tous les circuits
 $app->get ( '/circuit',
     function () use ($app)
