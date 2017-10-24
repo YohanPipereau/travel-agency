@@ -354,7 +354,6 @@ function programmationnewget_form($app)
     return $form;
 }
 
-
 $admin_programmationnew_get_action = function() use ($app)
 {
     $formulaire = programmationnewget_form($app);
@@ -368,5 +367,33 @@ $admin_programmationnew_get_action = function() use ($app)
         );
 };
 
-$app->get('/admin/programmationnew', $admin_programmationnew_getaction)
+$app->get('/admin/programmationnew', $admin_programmationnew_get_action)
     ->bind('admin_programmationnew');
+
+$admin_programmationnew_postaction = function(Request $request) use ($app)
+{
+    $form = programmationnewget_form($app);
+
+    $form->handleRequest($request);
+
+    // Data is supposed to be valid, but we actually don't use validators
+    if ($form->isValid())
+    {
+        $data = $form->getData();
+
+        add_programmation($data['dateDepart'],
+            $data['nombrePersonnes'],
+            $data['prix']
+            );
+
+        // Make sure message will be displayed after redirect
+        $app['session']->getFlashBag()->add('message', 'programmation bien ajouté');
+
+        $url = $app["url_generator"]->generate("admin_circuitlist");
+        return $app->redirect($url);
+    }
+    // for now, don't manage the case of non-valid data
+};
+// POST
+$app->post('/admin/programmationnew', $admin_programmationnew_postaction);
+
