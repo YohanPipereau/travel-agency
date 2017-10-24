@@ -1,0 +1,13 @@
+{# templates/back-office/programmation.html.twig #}
+
+{% extends "back-office/adminlayout.html.twig" %}
+
+{% block main %}
+
+<h1> Programmations </h1>
+
+{% for programmation in all_programmation %}
+    {{ programmation }}
+{% endfor %}
+
+{% endblock %} {# main #}

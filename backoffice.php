@@ -332,4 +332,9 @@ $app->delete('/admin/etape/{id}', $admin_etapedelete_action)
 // Programmations
 //-----------------------
 
-// TODO : actions
+$app->get('/admin/programmation', function() use($app) {
+    $all_programmation = get_all_programmations();
+    return $app['twig']->render('back-office/programmation.html.twig',
+    array('all_programmation' => $all_programmation)
+    );
+})->bind('back_programmation');

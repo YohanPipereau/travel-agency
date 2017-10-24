@@ -8,20 +8,18 @@
 {% block sectioncontent %}
 
     <div>
-        <form>
+        <form class='form-signin'>
             <div>
                 <div>
-                    <label id=login> Login </label>
-                    <input id=login placeholder='Your user login'> </input>
+                    <label class='sr-only' for=login> Login </label>
+                    <input id=login class='form-control' required placeholder='Your user login'> </input>
                 </div>
                 <div>
-                    <label id=password> Password </label>
-                    <input id=password type=password placeholder='Your password'>  </input>
+                    <label class='sr-only' for=password> Password </label>
+                    <input id=password class='form-control' type=password required placeholder='Your password'>  </input>
                 </div>
             </div>
-            <div>
-                <input type=submit />
-            </div>
+            <button class="btn btn-lg btn-primary btn-block" type=submit> Sign-in </button>
         </form>
     <div>
 {% endblock %}
