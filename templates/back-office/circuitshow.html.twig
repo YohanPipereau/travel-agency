@@ -65,7 +65,19 @@
 				<td>{{ programmation.dateDepart|date('d-m-Y')  }}</td>
 				<td>{{ programmation.nombrePersonnes }}</td>
 				<td>{{ programmation.prix }} euros</td>
+                <td>
+                    <form action="{{ path('admin_circuitmodify', { 'id' : id }) }}" method="GET">
+    		        	<button type="submit" class="btn btn-warning btn-block">modify programmation (Fonctionne pas)</button>
+                        <input type="hidden" id="_method" name="_method" value="DELETE" />
+                    </form>
+                </td>
 			</tr>
+            <div class="col-md-5">
+            <form action="{{ path('admin_circuitmodify', { 'id' : id }) }}" method="GET">
+    	      	<button type="submit" class="btn btn-block">Add programmation (Fonctionne pas)</button>
+                <input type="hidden" id="_method" name="_method" value="DELETE" />
+            </form>
+            </div>
 			{% endfor %}
 		</table>
 		{% else %}
