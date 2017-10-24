@@ -9,18 +9,23 @@
 {% endblock %}
 
 
-{% block main %}
+{% block body %}
 	{# Display messages resulting from redirects after C(R)UD actions #}
     {% for message in app.session.flashbag.get('message') %}
-        <div class="alert alert-info alert-dismissible" role="alert">
+        <div class="alert alert-info alert-dismissible" style="margin-top:4em" role="alert">
             <button type="button" class="close" data-dismiss="alert">
                 <span aria-hidden="true">&times;</span>
                 <span class="sr-only">Close</span>
             </button>
             <p>{{ message }}</p>
         </div>
+
     {% endfor %}
 
+<div class="container body-container" style="margin-top:3em" >
+    {% block main %}
+    {% endblock %} {# main #}
+</div>  <!-- /.body-container -->
 {% endblock %}{# menu #}
 
 {% block footer %}

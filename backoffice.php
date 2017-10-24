@@ -121,7 +121,7 @@ $app->get('/admin/circuitnew', $admin_circuitnew_getaction)
  */
  $admin_circuitnew_postaction = function(Request $request) use ($app)
  {
-    $form = circuitnewget_form($app);
+     $form = circuitnewget_form($app);
 
     $form->handleRequest($request);
 

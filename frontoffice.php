@@ -47,18 +47,15 @@ $app->get ( '/circuit', $circuitlist_action )
 
 // circuitshow : affiche les détails d'un circuit
 $app->get ( '/circuit/{id}',
-	function ($id) use ($app)
-	{
-		$circuit = get_circuit_by_id ( $id );
-		// print_r($circuit);
-		$programmations = get_programmation_by_circuit_id ( $id );
-		$circuit ['programmations'] = $programmations;
+		function ($id) use ($app)
+		{
+			$circuit = get_circuit_by_id ( $id );
 
-		return $app ['twig']->render ( 'front-office/circuitshow.html.twig', [
-				'id' => $id,
-				'circuit' => $circuit
-			] );
-	}
+			return $app ['twig']->render ( 'front-office/circuitshow.html.twig', [
+					'id' => $id,
+					'circuit' => $circuit
+				] );
+		}
 )->bind ( 'circuitshow' );
 
 // programmationlist : liste tous les circuits programmés
