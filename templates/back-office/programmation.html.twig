@@ -4,10 +4,17 @@
 
 {% block main %}
 
+<div>
 <h1> Programmations </h1>
 
+<ul>
 {% for programmation in all_programmation %}
-    {{ programmation }}
+    <li> {{ programmation.id }} {{ programmation.circuit.description }} le {{ programmation.dateDepart|date('d-m-Y')  }} </li>
 {% endfor %}
+</div>
 
+<div>
+    <h3> Create a programmation </h3>
+    <p> Please if you want to create a programmation. First go to the circuit and then create the programmation. </p>
+</div>
 {% endblock %} {# main #}

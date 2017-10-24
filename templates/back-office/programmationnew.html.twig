@@ -1,0 +1,13 @@
+{# templates/back-office/programmationnew.html.twig #}
+
+{% extends "back-office/adminlayout.html.twig" %}
+
+{% block title %}{{ parent() }} - New Programmation {% endblock %}
+
+{% block main %}
+
+  <h1>New programmation</h1>
+
+  {% include 'back-office/programmationform.html.twig' %}
+
+{% endblock %} {# main #}

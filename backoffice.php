@@ -338,3 +338,35 @@ $app->get('/admin/programmation', function() use($app) {
     array('all_programmation' => $all_programmation)
     );
 })->bind('back_programmation');
+
+
+/*
+ * Fonction utilitaire créant un formulaire pour une Programmation
+ */
+function programmationnewget_form($app)
+{
+    $form = $app['form.factory']->createBuilder(FormType::class)
+    // Attribut calculé : pas modifiable
+    ->add('dateDepart')
+    ->add('nombrePersonnes')
+    ->add('prix')
+    ->getForm();
+    return $form;
+}
+
+
+$admin_programmationnew_get_action = function() use ($app)
+{
+    $formulaire = programmationnewget_form($app);
+
+    $formview = $formulaire->createView();
+
+    // display the form
+    return $app['twig']->render('back-office/programmationnew.html.twig',
+        array(
+            'formulaire' => $formview)
+        );
+};
+
+$app->get('/admin/programmationnew', $admin_programmationnew_getaction)
+    ->bind('admin_programmationnew');

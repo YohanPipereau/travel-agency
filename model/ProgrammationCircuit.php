@@ -13,7 +13,7 @@ use DateTime;
 /**
  * Classe "Programmation d'un Circuit" du Modèle
  *
- * Entité du Modèle qui gère les programmations de circuits faites (ou ayant été faites) par 
+ * Entité du Modèle qui gère les programmations de circuits faites (ou ayant été faites) par
  * l'agence de voyage
  */
 class ProgrammationCircuit
@@ -60,15 +60,15 @@ class ProgrammationCircuit
     public function __construct($date, $nbPersonnes, $price, $circuitAssocie, $id = null)
     {
         ++ self::$instances;
-        if ($id) 
+        if ($id)
         {
             $this->_id = $id;
         }
-        else 
+        else
        {
             $this->_id = self::$instances;
         }
-        
+
         $this->dateDepart = new DateTime($date);
         $this->nombrePersonnes = $nbPersonnes;
         $this->prix = $price;
@@ -95,7 +95,7 @@ class ProgrammationCircuit
     public function setDateDepart($dateDepart)
     {
         $this->dateDepart = new DateTime($dateDepart);
-        
+
         return $this;
     }
 
@@ -119,7 +119,7 @@ class ProgrammationCircuit
     public function setNombrePersonnes($nombrePersonnes)
     {
         $this->nombrePersonnes = $nombrePersonnes;
-        
+
         return $this;
     }
 
@@ -143,7 +143,7 @@ class ProgrammationCircuit
     public function setPrix($prix)
     {
         $this->prix = $prix;
-        
+
         return $this;
     }
 
@@ -167,7 +167,7 @@ class ProgrammationCircuit
     public function setCircuit(\Model\Circuit $circuit = null)
     {
         $this->circuit = $circuit;
-        
+
         return $this;
     }
 
