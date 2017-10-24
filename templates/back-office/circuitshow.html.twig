@@ -72,10 +72,9 @@
                     </form>
                 </td>
 			</tr>
-            <div class="col-md-5">
-            <form action="{{ path('admin_circuitmodify', { 'id' : id }) }}" method="GET">
-    	      	<button type="submit" class="btn btn-block">Add programmation (Fonctionne pas)</button>
-                <input type="hidden" id="_method" name="_method" value="DELETE" />
+            <div class="col-md-3">
+            <form action="{{ path('admin_programmationnew', { 'id' : id }) }}" method="GET">
+    	      	<button type="submit" class="btn btn-block">Add programmation </button>
             </form>
             </div>
 			{% endfor %}
